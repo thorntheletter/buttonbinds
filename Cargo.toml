@@ -5,5 +5,6 @@ edition = "2021"
 
 [dependencies]
 enigo = "0.2.1"
-gilrs = "0.10.3"
+# gilrs = "0.10.3"
+gilrs = {version = "0.10.3", default-features = false, features = ["xinput"]}
 

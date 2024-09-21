@@ -13,18 +13,19 @@ fn main() {
 
     // let mut bindings: HashMap<GamepadId, HashMap<Button, Key>> = HashMap::new(); // can mess around with types later
     let player_1_directions = HashMap::from([ // should probably combine these into one type but quick and hacky is the way for right now
-        ("Up", Key::Unicode('T')),
-        ("Down", Key::Unicode('B')),
-        ("Left", Key::Unicode('F')),
-        ("Right", Key::Unicode('H')),
+        ("Up", Key::Unicode('t')),
+        ("Down", Key::Unicode('b')),
+        ("Left", Key::Unicode('f')),
+        ("Right", Key::Unicode('h')),
     ]);
     let player_1_actions = [
-        ("Punch", Key::Unicode('A')),
-        ("Kick", Key::Unicode('S')),
-        ("Slash", Key::Unicode('D')),
-        ("Heavy Slash", Key::Unicode('Q')),
-        ("Original Action", Key::Unicode('W')),
-        ("Special Action", Key::Unicode('E')),
+        ("Punch", Key::Unicode('a')),
+        ("Kick", Key::Unicode('s')),
+        ("Slash", Key::Unicode('d')),
+        ("Heavy Slash", Key::Unicode('q')),
+        ("Original Action", Key::Unicode('w')),
+        ("Special Action", Key::Unicode('e')),
+		("Pause", Key::Escape),
     ];
     #[cfg(target_os = "linux")]
     let player_2_directions = HashMap::from([ // should probably combine these into one type but quick and hacky is the way for right now
@@ -35,19 +36,19 @@ fn main() {
     ]);
     #[cfg(target_os = "windows")]
     let player_2_directions = HashMap::from([
-        ("Up", Key::Num8),
-        ("Down", Key::Num2),
-        ("Left", Key::Num4),
-        ("Right", Key::Num6),
+        ("Up", Key::Other(0x68)),
+        ("Down", Key::Other(0x62)),
+        ("Left", Key::Other(0x64)),
+        ("Right", Key::Other(0x66)),
     ]);
     let player_2_actions = [
-        ("Punch", Key::Unicode('J')),
-        ("Kick", Key::Unicode('K')),
-        ("Slash", Key::Unicode('L')),
-        ("Heavy Slash", Key::Unicode('I')),
-        ("Original Action", Key::Unicode('O')),
-        ("Special Action", Key::Unicode('P')),
-
+        ("Punch", Key::Unicode('j')),
+        ("Kick", Key::Unicode('k')),
+        ("Slash", Key::Unicode('l')),
+        ("Heavy Slash", Key::Unicode('i')),
+        ("Original Action", Key::Unicode('o')),
+        ("Special Action", Key::Unicode('p')),
+		("Pause", Key::Escape),
     ];
     let mut player_1_bindings: HashMap<GamepadId, HashMap<Button, Key>> = HashMap::new(); // can mess around with types later
     let mut player_2_bindings: HashMap<GamepadId, HashMap<Button, Key>> = HashMap::new(); // again should maybe be together but we can figure that out later
@@ -121,7 +122,6 @@ fn main() {
                                     controller_id = Some(id);
                                     match event {
                                         EventType::ButtonPressed(button, _) => {
-                                            println!("{:?}", event);
                                             match player_2_bindings.get_mut(&id) { // can probably do this easier with try_insert but not too fond of thinking rn // nvm it has still not been fully added for the past 3 years
                                                 Some(controller_bindings) => {
                                                     controller_bindings.insert(button, key);
@@ -158,9 +158,14 @@ fn main() {
                 EventType::ButtonPressed(b, _c) => {
                     match player_1_bindings.get(&id) {
                         Some(controller_bindings) => {
+							println!("{event:?}");
                             match controller_bindings.get(&b) {
                                 Some(key) => {
-                                    let _ = enigo.key(*key, Press);
+                                    let res = enigo.key(*key, Press);
+									match res {
+										Err(e) => println!("{e:?}"),
+										_ => (),
+									}
                                 },
                                 _ => (),
                             }
@@ -171,7 +176,11 @@ fn main() {
                         Some(controller_bindings) => {
                             match controller_bindings.get(&b) {
                                 Some(key) => {
-                                    let _ = enigo.key(*key, Press);
+                                    let res = enigo.key(*key, Press);
+									match res {
+										Err(e) => println!("{e:?}"),
+										_ => (),
+									}
                                 },
                                 _ => (),
                             }
