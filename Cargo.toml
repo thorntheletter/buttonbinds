@@ -1,10 +1,11 @@
 [package]
 name = "buttonbinds"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 
 [dependencies]
 enigo = "0.2.1"
 # gilrs = "0.10.3"
-gilrs = {version = "0.10.3", default-features = false, features = ["xinput"]}
+# gilrs = {version = "0.10.3", default-features = false, features = ["xinput"]}
+sdl2 = "0.37.0"
 
