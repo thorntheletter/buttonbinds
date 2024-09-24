@@ -156,7 +156,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[0]
                                                         {
-                                                            println!("right trigger activate");
                                                             controller_id = which;
                                                             controller_analog_states
                                                                 .get_mut(&which)
@@ -196,7 +195,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[1]
                                                         {
-                                                            println!("right trigger activate");
                                                             controller_id = which;
                                                             controller_analog_states
                                                                 .get_mut(&which)
@@ -241,7 +239,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[0]
                                                         {
-                                                            println!("deactivate right trigger");
                                                             controller_analog_states
                                                                 .get_mut(&which)
                                                                 .unwrap()[0] = false;
@@ -252,7 +249,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[1]
                                                         {
-                                                            println!("deactivate right trigger");
                                                             controller_analog_states
                                                                 .get_mut(&which)
                                                                 .unwrap()[1] = false;
@@ -341,7 +337,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[0]
                                                         {
-                                                            println!("right trigger activate");
                                                             controller_id = which;
                                                             controller_analog_states
                                                                 .get_mut(&which)
@@ -373,6 +368,7 @@ fn main() -> Result<(), String> {
                                                                     );
                                                                 }
                                                             }
+                                                            break 'waiting_input;
                                                         }
                                                     }
                                                     Axis::TriggerLeft => {
@@ -380,7 +376,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[1]
                                                         {
-                                                            println!("right trigger activate");
                                                             controller_id = which;
                                                             controller_analog_states
                                                                 .get_mut(&which)
@@ -412,6 +407,7 @@ fn main() -> Result<(), String> {
                                                                     );
                                                                 }
                                                             }
+                                                            break 'waiting_input;
                                                         }
                                                     }
                                                     _ => (),
@@ -424,7 +420,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[0]
                                                         {
-                                                            println!("deactivate right trigger");
                                                             controller_analog_states
                                                                 .get_mut(&which)
                                                                 .unwrap()[0] = false;
@@ -435,7 +430,6 @@ fn main() -> Result<(), String> {
                                                             .get(&which)
                                                             .unwrap()[1]
                                                         {
-                                                            println!("deactivate right trigger");
                                                             controller_analog_states
                                                                 .get_mut(&which)
                                                                 .unwrap()[1] = false;
@@ -499,7 +493,6 @@ fn main() -> Result<(), String> {
         }
 
         for event in event_pump.poll_iter() {
-            // TODO: add analog analog stick
             match event {
                 Event::ControllerButtonDown {
                     timestamp: _,
@@ -508,7 +501,6 @@ fn main() -> Result<(), String> {
                 } => {
                     match player_1_bindings.get(&which) {
                         Some(controller_bindings) => {
-                            println!("{event:?}");
                             match controller_bindings.get(&ControllerInput::Digital(button)) {
                                 Some(key) => {
                                     let res = enigo.key(*key, Press);
@@ -576,7 +568,6 @@ fn main() -> Result<(), String> {
                         match axis {
                             Axis::TriggerRight => {
                                 if !controller_analog_states.get(&which).unwrap()[0] {
-                                    println!("right trigger activate");
                                     controller_analog_states.get_mut(&which).unwrap()[0] = true;
                                     match player_1_bindings.get(&which) {
                                         Some(controller_bindings) => {
@@ -616,7 +607,6 @@ fn main() -> Result<(), String> {
                             }
                             Axis::TriggerLeft => {
                                 if !controller_analog_states.get(&which).unwrap()[1] {
-                                    println!("left trigger activate");
                                     controller_analog_states.get_mut(&which).unwrap()[1] = true;
                                     match player_1_bindings.get(&which) {
                                         Some(controller_bindings) => {
@@ -656,26 +646,148 @@ fn main() -> Result<(), String> {
                             }
                             Axis::LeftX => {
                                 if !controller_analog_states.get(&which).unwrap()[2] {
-                                    if value > 0 {
-                                        // right
-                                        println!("leftx activate (positive)");
-                                    } else {
-                                        // left
-                                        println!("leftx activate (negative)");
-                                    }
                                     controller_analog_states.get_mut(&which).unwrap()[2] = true;
+                                    match player_1_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            if value > 0 {
+                                                // right
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadRight),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            } else {
+                                                // Left
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadLeft),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            }
+                                        }
+                                        _ => (),
+                                    }
+                                    match player_2_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            if value > 0 {
+                                                // right
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadRight),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            } else {
+                                                // Left
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadLeft),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            }
+                                        }
+                                        _ => (),
+                                    }
                                 }
                             }
                             Axis::LeftY => {
                                 if !controller_analog_states.get(&which).unwrap()[3] {
-                                    if value > 0 {
-                                        // down
-                                        println!("lefty activate (positive)");
-                                    } else {
-                                        // up
-                                        println!("lefty activate (negative)");
-                                    }
                                     controller_analog_states.get_mut(&which).unwrap()[3] = true;
+                                    match player_1_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            if value > 0 {
+                                                // down
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadDown),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            } else {
+                                                // up
+                                                match controller_bindings
+                                                    .get(&ControllerInput::Digital(Button::DPadUp))
+                                                {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            }
+                                        }
+                                        _ => (),
+                                    }
+                                    match player_2_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            if value > 0 {
+                                                // down
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadDown),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            } else {
+                                                // up
+                                                match controller_bindings.get(
+                                                    &ControllerInput::Digital(Button::DPadUp),
+                                                ) {
+                                                    Some(key) => {
+                                                        let res = enigo.key(*key, Press);
+                                                        match res {
+                                                            Err(e) => println!("{e:?}"),
+                                                            _ => (),
+                                                        }
+                                                    }
+                                                    _ => (),
+                                                }
+                                            }
+                                        }
+                                        _ => (),
+                                    }
                                 }
                             }
                             _ => (),
@@ -685,7 +797,6 @@ fn main() -> Result<(), String> {
                         match axis {
                             Axis::TriggerRight => {
                                 if controller_analog_states.get(&which).unwrap()[0] {
-                                    println!("deactivate right trigger");
                                     controller_analog_states.get_mut(&which).unwrap()[0] = false;
                                     match player_1_bindings.get(&which) {
                                         Some(controller_bindings) => {
@@ -717,7 +828,6 @@ fn main() -> Result<(), String> {
                             }
                             Axis::TriggerLeft => {
                                 if controller_analog_states.get(&which).unwrap()[1] {
-                                    println!("deactivate right trigger");
                                     controller_analog_states.get_mut(&which).unwrap()[1] = false;
                                     match player_1_bindings.get(&which) {
                                         Some(controller_bindings) => {
@@ -749,14 +859,96 @@ fn main() -> Result<(), String> {
                             }
                             Axis::LeftX => {
                                 if controller_analog_states.get(&which).unwrap()[2] {
-                                    println!("leftx deactivate");
                                     controller_analog_states.get_mut(&which).unwrap()[2] = false;
+                                    match player_1_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadRight))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadLeft))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                        }
+                                        _ => (),
+                                    }
+                                    match player_2_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadRight))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadLeft))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                        }
+                                        _ => (),
+                                    }
                                 }
                             }
                             Axis::LeftY => {
                                 if controller_analog_states.get(&which).unwrap()[3] {
-                                    println!("lefty deactivate");
                                     controller_analog_states.get_mut(&which).unwrap()[3] = false;
+                                    match player_1_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadUp))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadDown))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                        }
+                                        _ => (),
+                                    }
+                                    match player_2_bindings.get(&which) {
+                                        Some(controller_bindings) => {
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadUp))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                            match controller_bindings
+                                                .get(&ControllerInput::Digital(Button::DPadDown))
+                                            {
+                                                Some(key) => {
+                                                    let _ = enigo.key(*key, Release);
+                                                }
+                                                _ => (),
+                                            }
+                                        }
+                                        _ => (),
+                                    }
                                 }
                             }
                             _ => (),
