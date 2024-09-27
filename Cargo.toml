@@ -7,5 +7,5 @@ edition = "2021"
 enigo = "0.2.1"
 # gilrs = "0.10.3"
 # gilrs = {version = "0.10.3", default-features = false, features = ["xinput"]}
-sdl2 = "0.37.0"
+sdl2 = {version = "0.37.0", features = ["static-link", "bundled"]}
 

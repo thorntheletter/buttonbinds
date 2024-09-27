@@ -10,6 +10,7 @@ extern crate sdl2;
 use sdl2::controller::{Axis, Button, GameController};
 use sdl2::event::Event;
 use std::os::raw::c_void;
+use std::time;
 
 #[derive(Eq, Hash, PartialEq)]
 enum ControllerInput {
@@ -23,16 +24,23 @@ fn bind(
     c_idx: u32,
     input: ControllerInput,
     k: Key,
-) {
+) -> bool {
     // could probably do this easier with try_insert if it ever gets added
     match bindings[p_idx].get_mut(&c_idx) {
         Some(controller_bindings) => {
-            controller_bindings.insert(input, k);
+			match controller_bindings.get(&input) {
+				Some(_) => return false,
+				None => {
+					controller_bindings.insert(input, k);
+					return true;
+				}
+			}
         }
         None => {
             bindings[p_idx].insert(c_idx, HashMap::new());
             let controller_bindings = bindings[p_idx].get_mut(&c_idx).unwrap();
             controller_bindings.insert(input, k);
+			return true;
         }
     }
 }
@@ -293,6 +301,7 @@ fn main() {
                         'waiting_input: loop {
                             // swap this to next_event_blocking w/ filters later if possible
                             let event = event_pump.wait_event();
+							println!("{event:?}");
                             match event {
                                 Event::ControllerButtonDown {
                                     timestamp: _,
@@ -300,14 +309,16 @@ fn main() {
                                     button,
                                 } => {
                                     controller_id = which;
-                                    bind(
+                                    match bind(
                                         &mut bindings,
                                         p_idx,
                                         which,
                                         ControllerInput::Digital(button),
                                         key,
-                                    );
-                                    break 'waiting_input;
+                                    ) {
+										true => break 'waiting_input,
+										false => ()
+									}
                                 }
                                 Event::ControllerDeviceAdded {
                                     timestamp: _,
@@ -347,14 +358,16 @@ fn main() {
                                             controller_analog_states.get_mut(&which).unwrap()
                                                 [state_idx] = new_state;
                                             if new_state {
-                                                bind(
+                                                match bind(
                                                     &mut bindings,
                                                     p_idx,
                                                     which,
                                                     ControllerInput::Analog(axis),
                                                     key,
-                                                );
-                                                break 'waiting_input;
+                                                ) {
+													true => break 'waiting_input,
+													false => ()
+												}
                                             }
                                         }
                                     }
