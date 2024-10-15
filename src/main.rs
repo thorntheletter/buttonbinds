@@ -10,7 +10,6 @@ extern crate sdl2;
 use sdl2::controller::{Axis, Button, GameController};
 use sdl2::event::Event;
 use std::os::raw::c_void;
-use std::time;
 
 #[derive(Eq, Hash, PartialEq)]
 enum ControllerInput {
@@ -301,7 +300,7 @@ fn main() {
                         'waiting_input: loop {
                             // swap this to next_event_blocking w/ filters later if possible
                             let event = event_pump.wait_event();
-							println!("{event:?}");
+							// println!("{event:?}");
                             match event {
                                 Event::ControllerButtonDown {
                                     timestamp: _,
