@@ -7,6 +7,7 @@ use std::collections::HashMap;
 use std::io;
 use std::thread;
 extern crate sdl2;
+use clap::Parser;
 use sdl2::controller::{Axis, Button, GameController};
 use sdl2::event::Event;
 use std::os::raw::c_void;
@@ -15,6 +16,19 @@ use std::os::raw::c_void;
 enum ControllerInput {
     Analog(Axis),
     Digital(Button),
+}
+
+// testotest
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    /// Output all events
+    #[arg(short, long, default_value_t = false)]
+    debug: bool,
+
+    /// Not yet implemented
+    #[arg(short, long, default_value = "bindings.yaml")]
+    file: String,
 }
 
 fn bind(
@@ -26,20 +40,18 @@ fn bind(
 ) -> bool {
     // could probably do this easier with try_insert if it ever gets added
     match bindings[p_idx].get_mut(&c_idx) {
-        Some(controller_bindings) => {
-			match controller_bindings.get(&input) {
-				Some(_) => return false,
-				None => {
-					controller_bindings.insert(input, k);
-					return true;
-				}
-			}
-        }
+        Some(controller_bindings) => match controller_bindings.get(&input) {
+            Some(_) => return false,
+            None => {
+                controller_bindings.insert(input, k);
+                return true;
+            }
+        },
         None => {
             bindings[p_idx].insert(c_idx, HashMap::new());
             let controller_bindings = bindings[p_idx].get_mut(&c_idx).unwrap();
             controller_bindings.insert(input, k);
-			return true;
+            return true;
         }
     }
 }
@@ -65,6 +77,9 @@ fn press(
 }
 
 fn main() {
+    let args = Args::parse();
+    println!("{:?}", args);
+
     let mut enigo = Enigo::new(&Settings::default()).unwrap();
     sdl2::hint::set("SDL_JOYSTICK_THREAD", "1");
     sdl2::hint::set("SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS", "1"); // might not be necessary
@@ -159,7 +174,9 @@ fn main() {
 
     loop {
         let event = event_pump.wait_event();
-        // println!("{event:?}");
+        if args.debug {
+            println!("{event:?}");
+        }
         match event {
             Event::ControllerButtonDown {
                 timestamp: _,
@@ -300,7 +317,9 @@ fn main() {
                         'waiting_input: loop {
                             // swap this to next_event_blocking w/ filters later if possible
                             let event = event_pump.wait_event();
-							// println!("{event:?}");
+                            if args.debug {
+                                println!("{event:?}");
+                            }
                             match event {
                                 Event::ControllerButtonDown {
                                     timestamp: _,
@@ -315,9 +334,9 @@ fn main() {
                                         ControllerInput::Digital(button),
                                         key,
                                     ) {
-										true => break 'waiting_input,
-										false => ()
-									}
+                                        true => break 'waiting_input,
+                                        false => (),
+                                    }
                                 }
                                 Event::ControllerDeviceAdded {
                                     timestamp: _,
@@ -364,9 +383,9 @@ fn main() {
                                                     ControllerInput::Analog(axis),
                                                     key,
                                                 ) {
-													true => break 'waiting_input,
-													false => ()
-												}
+                                                    true => break 'waiting_input,
+                                                    false => (),
+                                                }
                                             }
                                         }
                                     }
