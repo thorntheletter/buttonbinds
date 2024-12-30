@@ -12,9 +12,6 @@ use sdl2::controller::{Axis, Button, GameController};
 use sdl2::event::Event;
 use std::os::raw::c_void;
 
-use serde::Serialize;
-use serde_json;
-
 mod config;
 
 #[derive(Eq, Hash, PartialEq)]
@@ -70,18 +67,7 @@ fn press(
 
 fn main() {
     let args = config::Args::parse();
-    // println!("{:?}", args.file);
-
     let configuration = config::load_config(args.file);
-    // let configuration = config::load_config(String::from("bindings.json"));
-
-    // println!("{:?}", configuration);
-
-
-    // let toml = match serde_json::to_string_pretty(&directions) {
-    //    Ok(x) => println!("{}", x),
-    //     Err(x) => println!("{}", x),
-    // };
 
     let mut enigo = Enigo::new(&Settings::default()).unwrap();
     sdl2::hint::set("SDL_JOYSTICK_THREAD", "1");
@@ -100,67 +86,6 @@ fn main() {
     let mut bindings: [HashMap<u32, HashMap<ControllerInput, Key>>; 2] =
         [HashMap::new(), HashMap::new()];
 
-    // #[cfg(target_os = "linux")]
-    // let directions: [HashMap<&str, Key>; 2] = [
-    //     HashMap::from([
-    //         ("Up", Key::Unicode('t')),
-    //         ("Down", Key::Unicode('b')),
-    //         ("Left", Key::Unicode('f')),
-    //         ("Right", Key::Unicode('h')),
-    //     ]),
-    //     HashMap::from([
-    //         // should probably combine these into one type but quick and hacky is the way for right now
-    //         ("Up", Key::Other(0xffb8)),
-    //         ("Down", Key::Other(0xffb2)),
-    //         ("Left", Key::Other(0xffb4)),
-    //         ("Right", Key::Other(0xffb6)),
-    //     ]),
-    // ];
-
-    // #[cfg(target_os = "windows")]
-    // let directions: [HashMap<&str, Key>; 2] = [
-    //     HashMap::from([
-    //         ("Up", Key::Unicode('t')),
-    //         ("Down", Key::Unicode('b')),
-    //         ("Left", Key::Unicode('f')),
-    //         ("Right", Key::Unicode('h')),
-    //     ]),
-    //     HashMap::from([
-    //         ("Up", Key::Other(0x68)),
-    //         ("Down", Key::Other(0x62)),
-    //         ("Left", Key::Other(0x64)),
-    //         ("Right", Key::Other(0x66)),
-    //     ]),
-    // ];
-
-    // let actions: [[(&str, Key); 7]; 2] = [
-    //     [
-    //         ("Punch", Key::Unicode('a')),
-    //         ("Kick", Key::Unicode('s')),
-    //         ("Slash", Key::Unicode('d')),
-    //         ("Heavy Slash", Key::Unicode('q')),
-    //         ("Original Action", Key::Unicode('w')),
-    //         ("Special Action", Key::Unicode('e')),
-    //         ("Pause", Key::Escape),
-    //     ],
-    //     [
-    //         ("Punch", Key::Unicode('j')),
-    //         ("Kick", Key::Unicode('k')),
-    //         ("Slash", Key::Unicode('l')),
-    //         ("Heavy Slash", Key::Unicode('i')),
-    //         ("Original Action", Key::Unicode('o')),
-    //         ("Special Action", Key::Unicode('p')),
-    //         ("Pause", Key::Escape),
-    //     ],
-    // ];
-
-    // let testostruct = Test {
-    //     key: Key::Unicode('W'),
-    // };
-        
-    // println!("{}", toml);
-
-    // let (tx, rx) = mpsc::channel();
     println!("Please enter either 1 or 2.");
     thread::spawn(move || loop {
         // event_sender.push_custom_event::<u32>(3);
@@ -321,7 +246,6 @@ fn main() {
                     let p_idx = code as usize;
                     bindings[p_idx].drain();
                     let mut controller_id: u32 = 0; // should probably be option again, too lazy to change it back
-                    // for (action, key) in actions[p_idx] {
                     for (action, key) in &configuration.controls[p_idx].actions {
                         println!("{}:", action);
                         'waiting_input: loop {
@@ -408,13 +332,11 @@ fn main() {
                     }
 
                     // should probably just initialize bindings map with these already in it once they have controller select
-                    // let controller_bindings = bindings[p_idx].get_mut(&controller_id).unwrap();
                     bind(
                         &mut bindings,
                         p_idx,
                         controller_id,
                         ControllerInput::Digital(Button::DPadUp),
-                        // *directions[p_idx].get("Up").unwrap(),
                         *configuration.controls[p_idx].directions.get("Up").unwrap(),
                     );
                     bind(
@@ -422,24 +344,30 @@ fn main() {
                         p_idx,
                         controller_id,
                         ControllerInput::Digital(Button::DPadDown),
-                        //*directions[p_idx].get("Down").unwrap(),
-                        *configuration.controls[p_idx].directions.get("Down").unwrap(),
+                        *configuration.controls[p_idx]
+                            .directions
+                            .get("Down")
+                            .unwrap(),
                     );
                     bind(
                         &mut bindings,
                         p_idx,
                         controller_id,
                         ControllerInput::Digital(Button::DPadLeft),
-                        // *directions[p_idx].get("Left").unwrap(),
-                        *configuration.controls[p_idx].directions.get("Left").unwrap(),
+                        *configuration.controls[p_idx]
+                            .directions
+                            .get("Left")
+                            .unwrap(),
                     );
                     bind(
                         &mut bindings,
                         p_idx,
                         controller_id,
                         ControllerInput::Digital(Button::DPadRight),
-                        // *directions[p_idx].get("Right").unwrap(),
-                        *configuration.controls[p_idx].directions.get("Right").unwrap(),
+                        *configuration.controls[p_idx]
+                            .directions
+                            .get("Right")
+                            .unwrap(),
                     );
                     println!("Finished with binding, please double check bindings in game.");
                     println!("Please enter either 1 or 2.");

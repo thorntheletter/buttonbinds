@@ -3,10 +3,10 @@ use enigo::Key;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs::File;
-use std::fs;
-use std::io::{Read, BufReader};
+use std::io::BufReader;
 
-// testotest
+/// a program to quickly bind gamepad controls for offline multiplayer of games with no / bad
+/// controller support
 #[derive(Parser, Debug, Serialize)]
 #[command(version, about, long_about = None)]
 pub struct Args {
@@ -36,10 +36,11 @@ pub fn load_config(filename: String) -> Config {
             let reader = BufReader::new(file);
             serde_json::from_reader(reader).unwrap()
             //
-        },
-        Err(error) => {
+        }
+        Err(_) => {
             println!("Configuration file not loaded, defaulting to Wonderful World.");
             let p1 = Controls {
+                // likely a cleaner way but i do not feel like dealing with str lifetimes rn
                 directions: HashMap::from([
                     (String::from("Up"), Key::Unicode('t')),
                     (String::from("Down"), Key::Unicode('b')),
@@ -87,7 +88,6 @@ pub fn load_config(filename: String) -> Config {
             }
         }
     };
-    println!("Loaded configuration for {}.", config.name); 
+    println!("Loaded configuration for {}.", config.name);
     return config;
-    // let reader = BufReader::new(file);
 }

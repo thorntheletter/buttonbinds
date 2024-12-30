@@ -1,0 +1,69 @@
+{
+  "name": "Phantasmagoria of Dim. Dream",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "f"
+        },
+        "Right": {
+          "Unicode": "h"
+        },
+        "Down": {
+          "Unicode": "b"
+        },
+        "Up": {
+          "Unicode": "t"
+        }
+      },
+      "actions": [
+        [
+          "Fire",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "Bomb",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": {
+          "Other": 65464
+        },
+        "Down": {
+          "Other": 65458
+        },
+        "Left": {
+          "Other": 65460
+        },
+        "Right": {
+          "Other": 65462
+        }
+      },
+      "actions": [
+        [
+          "Fire",
+	  "LeftArrow"
+        ],
+        [
+          "Bomb",
+	  "RightArrow"
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    }
+  ]
+}
