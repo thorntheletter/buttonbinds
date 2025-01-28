@@ -1,0 +1,89 @@
+{
+  "name": "Comic Party Wars 2",
+  "controls": [
+    {
+      "directions": {
+		"Up": {
+          "Unicode": "w"
+        },
+		"Down": {
+          "Unicode": "s"
+        },
+        "Left": {
+          "Unicode": "a"
+        },
+        "Right": {
+          "Unicode": "d"
+        }
+      },
+      "actions": [
+        [
+          "A (Light)",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "B (Medium)",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "C (Heavy)",
+          {
+            "Unicode": "c"
+          }
+        ],
+        [
+          "D (Deflect)",
+          {
+            "Unicode": "v"
+          }
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": {
+          "Unicode": "i"
+        },
+        "Down": {
+          "Unicode": "k" 
+        },
+        "Left": {
+          "Unicode": "j"
+        },
+        "Right": {
+          "Unicode": "l"
+        }
+      },
+      "actions": [
+        [
+          "A (Light)",
+          {
+            "Unicode": "n"
+          }
+        ],
+        [
+          "B (Medium)",
+          {
+            "Unicode": "m"
+          }
+        ],
+        [
+          "C (Heavy)",
+          {
+            "Unicode": ","
+          }
+        ],
+        [
+          "D (Deflect)",
+          {
+            "Unicode": "."
+          }
+        ]
+      ]
+    }
+  ]
+}
