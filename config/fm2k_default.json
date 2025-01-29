@@ -61,18 +61,10 @@
     },
     {
       "directions": {
-        "Up": {
-          "Other": 65464
-        },
-        "Down": {
-          "Other": 65458
-        },
-        "Left": {
-          "Other": 65460
-        },
-        "Right": {
-          "Other": 65462
-        }
+        "Up": "Numpad8",
+        "Down": "Numpad2",
+        "Left": "Numpad4",
+        "Right": "Numpad6"
       },
       "actions": [
         [

@@ -37,27 +37,19 @@
     },
     {
       "directions": {
-        "Up": {
-          "Other": 104
-        },
-        "Down": {
-          "Other": 98
-        },
-        "Left": {
-          "Other": 100
-        },
-        "Right": {
-          "Other": 102
-        }
+        "Up": "Numpad8",
+        "Down": "Numpad2",
+        "Left": "Numpad4",
+        "Right": "Numpad6"
       },
       "actions": [
         [
           "Fire",
-	  "LeftArrow"
+          "LeftArrow"
         ],
         [
           "Bomb",
-	  "RightArrow"
+          "RightArrow"
         ],
         [
           "Pause",
