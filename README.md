@@ -2,7 +2,7 @@ Basic program for binding controls quickly in Wonderful World and other games wi
 
 You can specify a configuration file with -f \<PATH\> to change what game it is binding controls for, or else it will load bindings.json in its own directory (and if there is none, it will load the configuration for Wonderful World).
 
-Currently this uses an alternate branch of enigo that has support for the numpad on Linux. This will likely need to be changed back once it gets merged into main.
+Currently this uses a pre-release version of enigo that has support for the numpad on Linux. This will likely need to be changed back upon the next engio release.
 
 Current configuration files in the repo:
 - 2D Fighter Maker 2nd (Generic Bindings)

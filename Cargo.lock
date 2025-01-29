@@ -203,7 +203,7 @@ checksum = "75b325c5dbd37f80359721ad39aca5a29fb04c89279657cffdda8736d0c0b9d2"
 [[package]]
 name = "enigo"
 version = "0.3.0"
-source = "git+https://github.com/pentamassiv/enigo.git?branch=linux_numpad#380e263f395c3d388781823acd0c240f18905637"
+source = "git+https://github.com/enigo-rs/enigo.git?rev=4bbaee5#4bbaee5712a42bdc2b3aaa2e84e41e6c76519a8f"
 dependencies = [
  "core-foundation",
  "core-graphics",
@@ -217,7 +217,6 @@ dependencies = [
  "tempfile",
  "wayland-client",
  "wayland-protocols-misc",
- "wayland-protocols-plasma",
  "wayland-protocols-wlr",
  "windows",
  "x11rb",
@@ -637,19 +636,6 @@ name = "wayland-protocols-misc"
 version = "0.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "da2e42969764e469a115d4bb1c16e9588ef8b75b127ba7a2c9ddf1e140b25ca7"
-dependencies = [
- "bitflags 2.8.0",
- "wayland-backend",
- "wayland-client",
- "wayland-protocols",
- "wayland-scanner",
-]
-
-[[package]]
-name = "wayland-protocols-plasma"
-version = "0.3.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9b31cab548ee68c7eb155517f2212049dc151f7cd7910c2b66abfd31c3ee12bd"
 dependencies = [
  "bitflags 2.8.0",
  "wayland-backend",
