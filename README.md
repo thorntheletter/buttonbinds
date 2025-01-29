@@ -8,6 +8,7 @@ Current configuration files in the repo:
 - 2D Fighter Maker 2nd (Generic Bindings)
 - 2D Fighter Maker 95 (Generic Bindings)
 - Comic Party Wars 2
+- The Queen of Heart '99 (2 player only for now)
 - Touhou 3: Phantasmagoria of Dim. Dream
 - Wonderful World
 

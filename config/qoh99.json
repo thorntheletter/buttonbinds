@@ -1,0 +1,89 @@
+{
+  "name": "The Queen of Heart '99",
+  "controls": [
+    {
+      "directions": {
+        "Left": "LeftArrow",
+        "Right": "RightArrow",
+        "Down": "DownArrow",
+        "Up": "UpArrow"
+      },
+      "actions": [
+        [
+          "Light",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "Medium",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "Heavy",
+          {
+            "Unicode": "c"
+          }
+        ],
+        [
+          "Stand",
+          {
+            "Unicode": "v"
+          }
+        ],
+        [
+          "Pause",
+          "F12"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": {
+            "Unicode": "i"
+          },
+        "Down": {
+            "Unicode": "k"
+          },
+        "Left": {
+            "Unicode": "j"
+          },
+        "Right": {
+            "Unicode": "l"
+          }
+      },
+      "actions": [
+        [
+          "Light",
+          {
+            "Unicode": "a"
+          }
+        ],
+        [
+          "Medium",
+          {
+            "Unicode": "s"
+          }
+        ],
+        [
+          "Heavy",
+          {
+            "Unicode": "d"
+          }
+        ],
+        [
+          "Stand",
+          {
+            "Unicode": "f"
+          }
+        ],
+        [
+          "Pause",
+          "F12"
+        ]
+      ]
+    }
+  ]
+}
