@@ -1,0 +1,113 @@
+{
+  "name": "Wonderful World",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "f"
+        },
+        "Right": {
+          "Unicode": "h"
+        },
+        "Down": {
+          "Unicode": "b"
+        },
+        "Up": {
+          "Unicode": "t"
+        }
+      },
+      "actions": [
+        [
+          "Punch",
+          {
+            "Unicode": "a"
+          }
+        ],
+        [
+          "Kick",
+          {
+            "Unicode": "s"
+          }
+        ],
+        [
+          "Slash",
+          {
+            "Unicode": "d"
+          }
+        ],
+        [
+          "Heavy Slash",
+          {
+            "Unicode": "q"
+          }
+        ],
+        [
+          "Original Action",
+          {
+            "Unicode": "w"
+          }
+        ],
+        [
+          "Special Action",
+          {
+            "Unicode": "e"
+          }
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "Numpad8",
+        "Down": "Numpad2",
+        "Left": "Numpad4",
+        "Right": "Numpad6"
+      },
+      "actions": [
+        [
+          "Punch",
+          {
+            "Unicode": "j"
+          }
+        ],
+        [
+          "Kick",
+          {
+            "Unicode": "k"
+          }
+        ],
+        [
+          "Slash",
+          {
+            "Unicode": "l"
+          }
+        ],
+        [
+          "Heavy Slash",
+          {
+            "Unicode": "i"
+          }
+        ],
+        [
+          "Original Action",
+          {
+            "Unicode": "o"
+          }
+        ],
+        [
+          "Special Action",
+          {
+            "Unicode": "p"
+          }
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    }
+  ]
+}

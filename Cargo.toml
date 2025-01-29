@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.23", features = ["derive"] }
-enigo = {version = "0.2.1", features = ["wayland", "serde"]} # need to make sure this does not mess up x support
+enigo = { git = "https://github.com/pentamassiv/enigo.git", branch = "linux_numpad", features = ["wayland", "serde"]} # need to make sure this does not mess up x support
 sdl2 = {version = "0.37.0", features = ["static-link", "bundled"]}
 serde = { version = "1.0.216", features = ["derive"] }
 serde_json = "1.0.134"

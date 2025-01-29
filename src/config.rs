@@ -58,19 +58,11 @@ pub fn load_config(filename: String) -> Config {
                 ],
             };
             let p2 = Controls {
-                #[cfg(target_os = "windows")]
                 directions: HashMap::from([
-                    (String::from("Up"), Key::Other(0x68)),
-                    (String::from("Down"), Key::Other(0x62)),
-                    (String::from("Left"), Key::Other(0x64)),
-                    (String::from("Right"), Key::Other(0x66)),
-                ]),
-                #[cfg(target_os = "linux")]
-                directions: HashMap::from([
-                    (String::from("Up"), Key::Other(0xffb8)),
-                    (String::from("Down"), Key::Other(0xffb2)),
-                    (String::from("Left"), Key::Other(0xffb4)),
-                    (String::from("Right"), Key::Other(0xffb6)),
+                    (String::from("Up"), Key::Numpad8),
+                    (String::from("Down"), Key::Numpad2),
+                    (String::from("Left"), Key::Numpad4),
+                    (String::from("Right"), Key::Numpad6),
                 ]),
                 actions: vec![
                     (String::from("Punch"), Key::Unicode('j')),
