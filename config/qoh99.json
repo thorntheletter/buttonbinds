@@ -135,7 +135,9 @@
             "directions": {
                 "Up": "Home",
                 "Down": "End",
-                "Left": "Delete",
+                "Left": {
+					"Unicode": "b"
+				},
                 "Right": "PageDown"
             },
             "actions": [
