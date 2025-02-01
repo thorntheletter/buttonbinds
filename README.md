@@ -7,11 +7,11 @@ Currently this uses a pre-release version of enigo that has support for the nump
 Current configuration files in the repo:
 - 2D Fighter Maker 2nd (Generic Bindings)
 - 2D Fighter Maker 95 (Generic Bindings)
+- Battle Fantasia
 - Comic Party Wars 2
 - The Queen of Heart '99 (2 player only for now)
 - Touhou 3: Phantasmagoria of Dim. Dream
 - Wonderful World
-- Battle Fantasia
 
 Let me know if there are any you want added (or made your own and want them on the repo) or issues you have discovered.
 
