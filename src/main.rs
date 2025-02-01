@@ -21,7 +21,8 @@ enum ControllerInput {
 }
 
 fn bind(
-    bindings: &mut [HashMap<u32, HashMap<ControllerInput, Key>>; 2],
+    // bindings: &mut [HashMap<u32, HashMap<ControllerInput, Key>>; 2],
+    bindings: &mut Vec<HashMap<u32, HashMap<ControllerInput, Key>>>,
     p_idx: usize,
     c_idx: u32,
     input: ControllerInput,
@@ -46,7 +47,7 @@ fn bind(
 }
 
 fn press(
-    bindings: &[HashMap<u32, HashMap<ControllerInput, Key>>; 2],
+    bindings: &Vec<HashMap<u32, HashMap<ControllerInput, Key>>>,
     enigo: &mut Enigo,
     c_idx: u32,
     input: ControllerInput,
@@ -68,6 +69,7 @@ fn press(
 fn main() {
     let args = config::Args::parse();
     let configuration = config::load_config(args.file);
+    let num_players: usize = configuration.controls.len();
 
     let mut enigo = Enigo::new(&Settings::default()).unwrap();
     sdl2::hint::set("SDL_JOYSTICK_THREAD", "1");
@@ -83,10 +85,14 @@ fn main() {
 
     let mut controllers: HashMap<u32, GameController> = HashMap::new();
     let mut controller_analog_states: HashMap<u32, [bool; 4]> = HashMap::new();
-    let mut bindings: [HashMap<u32, HashMap<ControllerInput, Key>>; 2] =
-        [HashMap::new(), HashMap::new()];
+    // let mut bindings: [HashMap<u32, HashMap<ControllerInput, Key>>; num_players] =
+    //     [HashMap::new(); num_players];
+    let mut bindings: Vec<HashMap<u32, HashMap<ControllerInput, Key>>> = Vec::new();
+    for _ in 0..num_players {
+        bindings.push(HashMap::new());
+    }
 
-    println!("Please enter either 1 or 2.");
+    println!("Please enter your player number, 1 - {}.", num_players);
     thread::spawn(move || loop {
         // event_sender.push_custom_event::<u32>(3);
         let mut input = String::new();
@@ -102,7 +108,7 @@ fn main() {
                     data2: 0 as *mut c_void,
                 });
             }
-            Err(_) => println!("Please enter either 1 or 2."),
+            Err(_) => println!("Please enter your player number, 1 - {}.", num_players),
         }
     });
 
@@ -238,9 +244,9 @@ fn main() {
                 data1: _,
                 data2: _,
             } => {
-                if code > 1 {
+                if code > (num_players - 1).try_into().unwrap()  {
                     // maybe should have kept this out of the main event loop, just broken with
-                    println!("Please enter either 1 or 2.")
+                    println!("Please enter your player number, 1 - {}.", num_players);
                 } else {
                     println!("Binding buttons for Player {}. Press the buttons you would like for the corresponding actions:", code + 1);
                     let p_idx = code as usize;
@@ -370,7 +376,7 @@ fn main() {
                             .unwrap(),
                     );
                     println!("Finished with binding, please double check bindings in game.");
-                    println!("Please enter either 1 or 2.");
+                    println!("Please enter your player number, 1 - {}.", num_players);
                 }
             }
             Event::ControllerDeviceAdded {
