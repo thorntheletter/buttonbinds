@@ -1,0 +1,129 @@
+{
+  "name": "Battle Fantasia",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "a"
+        },
+        "Right": {
+          "Unicode": "d"
+        },
+        "Down": {
+          "Unicode": "s"
+        },
+        "Up": {
+          "Unicode": "w"
+        }
+      },
+      "actions": [
+        [
+          "A Button",
+          {
+            "Unicode": "u"
+          }
+        ],
+        [
+          "B Button (UI Confirm)",
+          {
+            "Unicode": "j"
+          }
+        ],
+        [
+          "C Button",
+          {
+            "Unicode": "i"
+          }
+        ],
+        [
+          "D Button (UI Cancel)",
+          {
+            "Unicode": "k"
+          }
+        ],
+        [
+          "Gachi Button",
+          {
+            "Unicode": "o"
+          }
+        ],
+        [
+          "Throw (A+B) Button",
+          {
+            "Unicode": "7"
+          }
+        ],
+        [
+          "Heat Up (A+C) Button",
+          {
+            "Unicode": "8"
+          }
+        ],
+        [
+          "Appeal (Taunt) Button",
+          {
+            "Unicode": "l"
+          }
+        ],
+        [
+          "Start Button",
+          "Return"
+        ],
+        [
+          "Select/Back Button",
+          "Backspace"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "UpArrow",
+        "Down": "DownArrow",
+        "Left": "LeftArrow",
+        "Right": "RightArrow"
+      },
+      "actions": [
+        [
+          "A Button",
+          "Numpad7"
+        ],
+        [
+          "B Button (UI Confirm)",
+          "Numpad4"
+        ],
+        [
+          "C Button",
+          "Numpad8"
+        ],
+        [
+          "D Button (UI Cancel)",
+          "Numpad5"
+        ],
+        [
+          "Gachi Button",
+          "Numpad9"
+        ],
+        [
+          "Throw (A+B) Button",
+          "Numpad1"
+        ],
+        [
+          "Heat Up (A+C) Button",
+          "Numpad2"
+        ],
+        [
+          "Appeal (Taunt) Button",
+          "Numpad6"
+        ],
+        [
+          "Start Button",
+          "Add"
+        ],
+        [
+          "Select/Back Button",
+          "Subtract"
+        ]
+      ]
+    }
+  ]
+}
