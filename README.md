@@ -9,7 +9,7 @@ Current configuration files in the repo:
 - 2D Fighter Maker 95 (Generic Bindings)
 - Battle Fantasia
 - Comic Party Wars 2
-- The Queen of Heart '99 (2 player only for now)
+- The Queen of Heart '99
 - Touhou 3: Phantasmagoria of Dim. Dream
 - Wonderful World
 
@@ -20,6 +20,7 @@ More features coming soon™.
 ----
 
 ## Game-specific tweaks
-Some games ship with default keyboard mappings that may not interact nicely with the keyboard interaction library shipped with this program. This requires some user input, see changes below:
+Some games ship with default keyboard mappings that may not interact nicely with the keyboard interaction library shipped with this program or the gane itself. This requires some user input, see changes below:
 
 - Battle Fantasia: Set both players to use Keyboard input. Keep all mappings to default, **except** changing Player 2 "Start" to "Numpad +", from "Numpad Enter".
+- The Queen of Heart '99: Keep default controls, **except** changing Player 4 "Left" to "B", from "Delete" because delete is a bind to go back to the main menu. The keybinding screen can be glitchy, I needed to press "0" to swap it to "B".
