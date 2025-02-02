@@ -1,175 +1,175 @@
 {
-    "name": "The Queen of Heart '99",
-    "controls": [
-        {
-            "directions": {
-                "Left": "LeftArrow",
-                "Right": "RightArrow",
-                "Down": "DownArrow",
-                "Up": "UpArrow"
-            },
-            "actions": [
-                [
-                    "Light",
-                    {
-                        "Unicode": "z"
-                    }
-                ],
-                [
-                    "Medium",
-                    {
-                        "Unicode": "x"
-                    }
-                ],
-                [
-                    "Heavy",
-                    {
-                        "Unicode": "c"
-                    }
-                ],
-                [
-                    "Stand",
-                    {
-                        "Unicode": "v"
-                    }
-                ],
-                [
-                    "Pause",
-                    "F12"
-                ]
-            ]
+  "name": "The Queen of Heart '99",
+  "controls": [
+    {
+      "directions": {
+        "Left": "LeftArrow",
+        "Right": "RightArrow",
+        "Down": "DownArrow",
+        "Up": "UpArrow"
+      },
+      "actions": [
+        [
+          "Light",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "Medium",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "Heavy",
+          {
+            "Unicode": "c"
+          }
+        ],
+        [
+          "Stand",
+          {
+            "Unicode": "v"
+          }
+        ],
+        [
+          "Pause",
+          "F12"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": {
+          "Unicode": "i"
         },
-        {
-            "directions": {
-                "Up": {
-                    "Unicode": "i"
-                },
-                "Down": {
-                    "Unicode": "k"
-                },
-                "Left": {
-                    "Unicode": "j"
-                },
-                "Right": {
-                    "Unicode": "l"
-                }
-            },
-            "actions": [
-                [
-                    "Light",
-                    {
-                        "Unicode": "a"
-                    }
-                ],
-                [
-                    "Medium",
-                    {
-                        "Unicode": "s"
-                    }
-                ],
-                [
-                    "Heavy",
-                    {
-                        "Unicode": "d"
-                    }
-                ],
-                [
-                    "Stand",
-                    {
-                        "Unicode": "f"
-                    }
-                ],
-                [
-                    "Pause",
-                    "F12"
-                ]
-            ]
+        "Down": {
+          "Unicode": "k"
         },
-        {
-            "directions": {
-                "Up": {
-                    "Unicode": "5"
-                },
-                "Down": {
-                    "Unicode": "t"
-                },
-                "Left": {
-                    "Unicode": "r"
-                },
-                "Right": {
-                    "Unicode": "y"
-                }
-            },
-            "actions": [
-                [
-                    "Light",
-                    {
-                        "Unicode": "1"
-                    }
-                ],
-                [
-                    "Medium",
-                    {
-                        "Unicode": "2"
-                    }
-                ],
-                [
-                    "Heavy",
-                    {
-                        "Unicode": "3"
-                    }
-                ],
-                [
-                    "Stand",
-                    {
-                        "Unicode": "4"
-                    }
-                ],
-                [
-                    "Pause",
-                    "F12"
-                ]
-            ]
+        "Left": {
+          "Unicode": "j"
         },
-        {
-            "directions": {
-                "Up": "Home",
-                "Down": "End",
-                "Left": {
-					"Unicode": "b"
-				},
-                "Right": "PageDown"
-            },
-            "actions": [
-                [
-                    "Light",
-                    {
-                        "Unicode": "7"
-                    }
-                ],
-                [
-                    "Medium",
-                    {
-                        "Unicode": "8"
-                    }
-                ],
-                [
-                    "Heavy",
-                    {
-                        "Unicode": "9"
-                    }
-                ],
-                [
-                    "Stand",
-                    {
-                        "Unicode": "0"
-                    }
-                ],
-                [
-                    "Pause",
-                    "F12"
-                ]
-            ]
+        "Right": {
+          "Unicode": "l"
         }
-    ]
+      },
+      "actions": [
+        [
+          "Light",
+          {
+            "Unicode": "a"
+          }
+        ],
+        [
+          "Medium",
+          {
+            "Unicode": "s"
+          }
+        ],
+        [
+          "Heavy",
+          {
+            "Unicode": "d"
+          }
+        ],
+        [
+          "Stand",
+          {
+            "Unicode": "f"
+          }
+        ],
+        [
+          "Pause",
+          "F12"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": {
+          "Unicode": "5"
+        },
+        "Down": {
+          "Unicode": "t"
+        },
+        "Left": {
+          "Unicode": "r"
+        },
+        "Right": {
+          "Unicode": "y"
+        }
+      },
+      "actions": [
+        [
+          "Light",
+          {
+            "Unicode": "1"
+          }
+        ],
+        [
+          "Medium",
+          {
+            "Unicode": "2"
+          }
+        ],
+        [
+          "Heavy",
+          {
+            "Unicode": "3"
+          }
+        ],
+        [
+          "Stand",
+          {
+            "Unicode": "4"
+          }
+        ],
+        [
+          "Pause",
+          "F12"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "Home",
+        "Down": "End",
+        "Left": {
+          "Unicode": "b"
+        },
+        "Right": "PageDown"
+      },
+      "actions": [
+        [
+          "Light",
+          {
+            "Unicode": "7"
+          }
+        ],
+        [
+          "Medium",
+          {
+            "Unicode": "8"
+          }
+        ],
+        [
+          "Heavy",
+          {
+            "Unicode": "9"
+          }
+        ],
+        [
+          "Stand",
+          {
+            "Unicode": "0"
+          }
+        ],
+        [
+          "Pause",
+          "F12"
+        ]
+      ]
+    }
+  ]
 }

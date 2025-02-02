@@ -244,7 +244,7 @@ fn main() {
                 data1: _,
                 data2: _,
             } => {
-                if code > (num_players - 1).try_into().unwrap()  {
+                if code > (num_players - 1).try_into().unwrap() {
                     // maybe should have kept this out of the main event loop, just broken with
                     println!("Please enter your player number, 1 - {}.", num_players);
                 } else {
