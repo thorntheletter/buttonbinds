@@ -10,25 +10,25 @@
       },
       "actions": [
         [
-          "Light",
+          "A (Light)",
           {
             "Unicode": "z"
           }
         ],
         [
-          "Medium",
+          "B (Medium)",
           {
             "Unicode": "x"
           }
         ],
         [
-          "Heavy",
+          "C (Heavy)",
           {
             "Unicode": "c"
           }
         ],
         [
-          "Stand",
+          "D (Stand / Select Alternate Character)",
           {
             "Unicode": "v"
           }
@@ -56,25 +56,25 @@
       },
       "actions": [
         [
-          "Light",
+          "A (Light)",
           {
             "Unicode": "a"
           }
         ],
         [
-          "Medium",
+          "B (Medium)",
           {
             "Unicode": "s"
           }
         ],
         [
-          "Heavy",
+          "C (Heavy)",
           {
             "Unicode": "d"
           }
         ],
         [
-          "Stand",
+          "D (Stand / Select Alternate Character)",
           {
             "Unicode": "f"
           }
@@ -102,25 +102,25 @@
       },
       "actions": [
         [
-          "Light",
+          "A (Light)",
           {
             "Unicode": "1"
           }
         ],
         [
-          "Medium",
+          "B (Medium)",
           {
             "Unicode": "2"
           }
         ],
         [
-          "Heavy",
+          "C (Heavy)",
           {
             "Unicode": "3"
           }
         ],
         [
-          "Stand",
+          "D (Stand / Select Alternate Character)",
           {
             "Unicode": "4"
           }
@@ -142,25 +142,25 @@
       },
       "actions": [
         [
-          "Light",
+          "A (Light)",
           {
             "Unicode": "7"
           }
         ],
         [
-          "Medium",
+          "B (Medium)",
           {
             "Unicode": "8"
           }
         ],
         [
-          "Heavy",
+          "C (Heavy)",
           {
             "Unicode": "9"
           }
         ],
         [
-          "Stand",
+          "D (Stand / Select Alternate Character)",
           {
             "Unicode": "0"
           }
