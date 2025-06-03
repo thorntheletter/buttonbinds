@@ -7,8 +7,10 @@ Currently this uses a pre-release version of enigo that has support for the nump
 Current configuration files in the repo:
 - 2D Fighter Maker 2nd (Generic Bindings)
 - 2D Fighter Maker 95 (Generic Bindings)
+- AzuFight: Taisen Shiyo
 - Battle Fantasia
 - Comic Party Wars 2
+- Hinokakera Chaotic Eclipse
 - The Queen of Heart '99
 - Touhou 3: Phantasmagoria of Dim. Dream
 - Wonderful World
