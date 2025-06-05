@@ -1,0 +1,89 @@
+{
+  "name": "Hinokakera.\n* Launch the game before connecting controllers",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "g"
+        },
+        "Right": {
+          "Unicode": "j"
+        },
+        "Up": {
+          "Unicode": "y"
+        },
+        "Down": {
+          "Unicode": "h"
+        }
+      },
+      "actions": [
+        [
+          "A",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "B",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "C",
+          {
+            "Unicode": "c"
+          }
+        ],
+        [
+          "D",
+          {
+            "Unicode": "v"
+          }
+        ],
+        [
+          "Pause",
+          "F1"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Left": "LeftArrow",
+        "Right": "RightArrow",
+        "Up": "UpArrow",
+        "Down": "DownArrow"
+      },
+      "actions": [
+        [
+          "A",
+          {
+            "Unicode": ","
+          }
+        ],
+        [
+          "B",
+          {
+            "Unicode": "."
+          }
+        ],
+        [
+          "C",
+          {
+            "Unicode": "/"
+          }
+        ],
+        [
+          "D",
+          {
+            "Unicode": "\\"
+          }
+        ],
+        [
+          "Pause",
+          "F1"
+        ]
+      ]
+    }
+  ]
+}

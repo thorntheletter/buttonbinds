@@ -1,0 +1,83 @@
+{
+  "name": "Azufight",
+  "controls": [
+    {
+      "directions": {
+        "Up": "UpArrow",
+        "Down": "DownArrow",
+        "Left": "LeftArrow",
+        "Right": "RightArrow"
+      },
+      "actions": [
+        [
+          "A",
+          {
+            "Unicode": "n"
+          }
+        ],
+        [
+          "B",
+          {
+            "Unicode": "m"
+          }
+        ],
+        [
+          "C",
+          {
+            "Unicode": ","
+          }
+        ],
+        [
+          "SP",
+          {
+            "Unicode": "."
+          }
+        ],
+        [
+          "Pause",
+          "F5"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "T",
+        "Down": "V",
+        "Left": "F",
+        "Right": "G"
+      },
+      "actions": [
+        [
+          "A",
+          {
+            "Unicode": "a"
+          }
+        ],
+        [
+          "B",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "C",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "SP",
+          {
+            "Unicode": "c"
+          }
+        ],
+        [
+          "Pause",
+          {
+            "Unicode": "d"
+          }
+        ]
+      ]
+    }
+  ]
+}
