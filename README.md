@@ -10,9 +10,12 @@ Current configuration files in the repo:
 - AzuFight: Taisen Shiyo
 - Battle Fantasia
 - Comic Party Wars 2
+- Glove on Fight
 - EN-Eins Perfektewelt: Anastasis
 - Fate Axis 2
 - Hinokakera Chaotic Eclipse
+- Hypothetical Horse Race Tests Fighting Game
+- Kioh Gyoku
 - The Queen of Heart '99
 - Touhou 3: Phantasmagoria of Dim. Dream
 - Wonderful World
