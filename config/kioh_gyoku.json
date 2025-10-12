@@ -1,0 +1,75 @@
+{
+  "name": "Kioh Gyoku\n* Launch the game and get to the main menu before alt-tabbing out and (re-)connecting the controllers",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "f"
+        },
+        "Right": {
+          "Unicode": "h"
+        },
+        "Down": {
+          "Unicode": "b"
+        },
+        "Up": {
+          "Unicode": "t"
+        }
+      },
+      "actions": [
+        [
+          "Fire",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "Bomb",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "Slow",
+          "LShift"
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "Numpad8",
+        "Down": "Numpad2",
+        "Left": "Numpad4",
+        "Right": "Numpad6"
+      },
+      "actions": [
+        [
+          "Fire",
+          {
+            "Unicode": "/"
+          }
+        ],
+        [
+          "Bomb",
+          {
+            "Unicode": "\\"
+          }
+        ],
+        [
+          "Slow",
+          {
+            "Unicode": "."
+          }
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    }
+  ]
+}

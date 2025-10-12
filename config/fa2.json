@@ -1,0 +1,129 @@
+{
+  "name": "Fate Axis 2",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "f"
+        },
+        "Right": {
+          "Unicode": "h"
+        },
+        "Down": {
+          "Unicode": "b"
+        },
+        "Up": {
+          "Unicode": "t"
+        }
+      },
+      "actions": [
+        [
+          "WEAK attack",
+          {
+            "Unicode": "a"
+          }
+        ],
+        [
+          "MEDIUM attack",
+          {
+            "Unicode": "s"
+          }
+        ],
+        [
+          "STRONG attack",
+          {
+            "Unicode": "d"
+          }
+        ],
+        [
+          "SPECIAL attack",
+          {
+            "Unicode": "q"
+          }
+        ],
+        [
+          "FA",
+          {
+            "Unicode": "w"
+          }
+        ],
+        [
+          "SIDESTEP front",
+          {
+            "Unicode": "e"
+          }
+        ],
+		   [
+          "SIDESTEP back",
+          {
+            "Unicode": "r"
+          }
+        ],
+        [
+          "Pause",
+          {
+            "Unicode": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "Numpad8",
+        "Down": "Numpad2",
+        "Left": "Numpad4",
+        "Right": "Numpad6"
+      },
+      "actions": [
+        [
+          "WEAK attack",
+          {
+            "Unicode": "j"
+          }
+        ],
+        [
+          "MEDIUM attack",
+          {
+            "Unicode": "k"
+          }
+        ],
+        [
+          "STRONG attack",
+          {
+            "Unicode": "l"
+          }
+        ],
+        [
+          "SPECIAL attack",
+          {
+            "Unicode": "i"
+          }
+        ],
+        [
+          "FA",
+          {
+            "Unicode": "o"
+          }
+        ],
+        [
+          "SIDESTEP front",
+          {
+            "Unicode": "p"
+          }
+        ],
+           [
+          "SIDESTEP back",
+          {
+            "Unicode": "u"
+          }
+        ],
+		[
+          "Pause",
+          {
+            "Unicode": "2"
+          }
+        ]
+      ]
+    }
+  ]
+}

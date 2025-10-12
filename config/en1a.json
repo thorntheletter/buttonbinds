@@ -1,0 +1,93 @@
+{
+  "name": "En-Eins Perfektewelt Anastasis 1.01",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "f"
+        },
+        "Right": {
+          "Unicode": "h"
+        },
+        "Down": {
+          "Unicode": "b"
+        },
+        "Up": {
+          "Unicode": "t"
+        }
+      },
+      "actions": [
+        [
+          "(A) Button",
+          {
+            "Unicode": "a"
+          }
+        ],
+        [
+          "(B) Button",
+          {
+            "Unicode": "s"
+          }
+        ],
+        [
+          "(C) Button",
+          {
+            "Unicode": "d"
+          }
+        ],
+        [
+          "(D) Button",
+          {
+            "Unicode": "q"
+          }
+        ],
+        [
+          "START",
+         {
+            "Unicode": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "Numpad8",
+        "Down": "Numpad2",
+        "Left": "Numpad4",
+        "Right": "Numpad6"
+      },
+      "actions": [
+        [
+          "(A) Button",
+          {
+            "Unicode": "j"
+          }
+        ],
+        [
+          "(B) Button",
+          {
+            "Unicode": "k"
+          }
+        ],
+        [
+          "(C) Button",
+          {
+            "Unicode": "l"
+          }
+        ],
+        [
+          "(D) Button",
+          {
+            "Unicode": "i"
+          }
+		],
+        [
+          "START",
+         {
+            "Unicode": "2"
+          }
+        ]
+      ]
+    }
+  ]
+}

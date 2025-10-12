@@ -1,0 +1,61 @@
+{
+  "name": "Glove on Fight\n* (Re-)connect controllers after the launcher opens",
+  "controls": [
+    {
+      "directions": {
+        "Up": "UpArrow",
+        "Down": "DownArrow",
+        "Left": "LeftArrow",
+        "Right": "RightArrow"
+      },
+      "actions": [
+        [
+          "A (Light)",
+          {
+            "Unicode": "n"
+          }
+        ],
+        [
+          "B (Heavy)",
+          {
+            "Unicode": "m"
+          }
+        ],
+        [
+          "C (Guard)",
+          {
+            "Unicode": ","
+          }
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": {"Unicode": "t"},
+        "Down": {"Unicode": "g"},
+        "Left": {"Unicode": "f"},
+        "Right": {"Unicode": "h"}
+      },
+      "actions": [
+        [
+          "A (Light)",
+          {
+            "Unicode": "z"
+          }
+        ],
+        [
+          "B (Heavy)",
+          {
+            "Unicode": "x"
+          }
+        ],
+        [
+          "C (Guard)",
+          {
+            "Unicode": "c"
+          }
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Hypothetical Horse Race Tests Fighting Game",
+  "controls": [
+    {
+      "directions": {
+        "Left": {
+          "Unicode": "a"
+        },
+        "Right": {
+          "Unicode": "d"
+        },
+        "Down": {
+          "Unicode": "s"
+        },
+        "Up": {
+          "Unicode": "w"
+        }
+      },
+      "actions": [
+        [
+          "A",
+          {
+            "Unicode": "j"
+          }
+        ],
+        [
+          "B",
+          {
+            "Unicode": "i"
+          }
+        ],
+        [
+          "C",
+          {
+            "Unicode": "o"
+          }
+        ],
+        [
+          "Training Mode Menu",
+          {
+            "Unicode": "l"
+          }
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    },
+    {
+      "directions": {
+        "Up": "UpArrow",
+        "Down": "DownArrow",
+        "Left": "LeftArrow",
+        "Right": "RightArrow"
+      },
+      "actions": [
+        [
+          "A", "Numpad1"
+        ],
+        [
+          "B", "Numpad2"
+        ],
+        [
+          "C", "Numpad3"
+        ],
+        [
+          "Pause",
+          "Escape"
+        ]
+      ]
+    }
+  ]
+}
